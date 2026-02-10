@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        # You must build this image: docker build -t hospital-backend ./backend
+        image: hospital-backend:latest 
+        imagePullPolicy: IfNotPresent # Important for local k8s clusters like Minikube/Docker Desktop
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DB_URL
+          value: jdbc:mysql://mysql:3306/hospital_db?allowPublicKeyRetrieval=true&useSSL=false
+        - name: DB_USERNAME
+          value: root
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: password
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

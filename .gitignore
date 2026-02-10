@@ -1,0 +1,19 @@
+# Logs
+*.log
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+backend/target/
+backend/.env
+frontend/dist/
+frontend/node_modules/
+frontend/.env

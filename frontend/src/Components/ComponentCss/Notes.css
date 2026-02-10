@@ -1,0 +1,8 @@
+.notes {
+    color: white !important;
+    background-color: rgb(28, 35, 45);
+    border-radius: 6px;
+    width:50%;
+    max-width:350px;
+    opacity: 0.85;
+}

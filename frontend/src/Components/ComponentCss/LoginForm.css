@@ -1,0 +1,23 @@
+/* Center the form on the page */
+.login-form-container {
+  min-height: calc(100vh - 150px); /* Adjust based on the height of your header and footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 75px; /* Same as header height */
+  padding-bottom: 75px; /* Same as footer height */
+}
+  
+  /* Make the text larger */
+  .login-form input {
+    font-size: 1.2rem; /* Adjust the size as needed */
+  }
+
+  .login-form label {
+    font-size: 1.1rem; /* Adjust the size as needed */
+  }
+  
+  .login-form, .badgeLogin {
+   max-width: 500px; /* Adjust the width as needed */
+   width: 100%; /* Adjust the width as needed */
+  }

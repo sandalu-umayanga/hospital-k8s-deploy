@@ -1,0 +1,26 @@
+/* Add your styles here */
+body {
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/static/images/patientRegister.webp");
+    background-color: #cccccc;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+@keyframes buttonClickAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+button.clicked {
+    animation: buttonClickAnimation 0.5s ease;
+}
+
+h2 {
+    color: #ff0000;
+}

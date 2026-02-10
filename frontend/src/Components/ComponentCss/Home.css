@@ -1,0 +1,24 @@
+.bg-primary {
+    background-color: rgb(70, 167, 199) !important;
+    color: rgb(4, 0, 230);
+    font-family: Roboto;
+    opacity: 0.85;
+}
+
+.text-start > p, .text-end > p {
+    color: rgb(255, 255, 255);
+    font-family: Roboto;
+    font-size: 1.2rem;
+}
+
+.announce {
+    max-width: 500px;
+}
+
+.announceShape {
+    max-width: 250px; /* Maximum width for the image */
+    width: 100%; /* Ensure the image scales responsively */
+    max-height: 300px; /* Maintain aspect ratio */
+    height: auto;
+    opacity: 0.75;
+}

@@ -1,0 +1,9 @@
+.form-label {
+    color:white;
+}
+
+img {
+    max-height: 370px !important;
+    width: auto;
+    height: 100%;
+}

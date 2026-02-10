@@ -1,0 +1,50 @@
+/* Ensure the navbar spans the full viewport width */
+.bg-body-tertiary {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+    background-color:#004080 !important;
+    z-index: 3;
+  }
+
+  /* Styling the nav container */
+  .nav {
+    padding: 10px;
+    padding-left: 30px;
+    background-color: #004080; /* Dark blue background for a hospital theme */
+    border-radius: 0;
+  }
+  
+  /* Styling the nav links */
+  .nav-link {
+    color: white !important;
+    font-size: 1.1rem;
+    margin-right: 15px !important;
+  }
+  
+  .nav-link:hover {
+    color: #cccccc !important; /* Light grey on hover */
+  }
+  
+  /* Styling the nav dropdown items */
+  .dropdown-item {
+    color: rgb(255, 255, 255) !important;
+    font-weight: bold !important;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #004080 !important; /* Dark blue background on hover */
+    color: white !important;
+  }
+
+  .dropdown-menu {
+    background-color: #6c90b5 !important; /* Dark blue background for dropdown */
+    opacity: 0.9;
+  }
+
+  .dropdown-divider {
+    background-color: #ffffff !important; /* Dark blue background for dropdown divider */
+    height: 1px;
+  }

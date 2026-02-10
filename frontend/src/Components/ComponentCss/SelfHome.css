@@ -1,0 +1,28 @@
+.card {
+    background-color: #1d304b;
+    border-radius: 10px;
+    opacity: 0.75;
+    position: relative; /* Allows the absolute positioning of child elements */
+    overflow: hidden; /* Ensures the image stays within the card bounds */
+}
+
+.image-container {
+    position: absolute;
+    top: 10px; /* Adjust to your preference */
+    right: 10px; /* Adjust to your preference */
+    width: 100px;
+    height: 100px;
+}
+
+.noteIcon {
+    width: 100%;
+    height: 100%;
+    max-width: 150px;
+    max-height: auto;
+    object-fit: cover; /* Ensures the image fits within the container without distorting */
+}
+
+.card-title {
+    color: white;
+}
+

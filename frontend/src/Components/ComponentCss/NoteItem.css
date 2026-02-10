@@ -1,0 +1,15 @@
+.noteIcon {
+    width: 100px;
+    height: 100px;
+}
+
+.noteItem {
+    max-width: 280px;
+    width: 100%;
+    background-color: rgb(159, 215, 239);
+    opacity: 0.85;
+}
+
+.noteItem:hover {
+    opacity: 1;
+}
