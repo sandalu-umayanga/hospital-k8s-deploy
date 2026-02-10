@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: backend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: backend
@@ -29,6 +29,14 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: password
+        - name: JWT_SECRET
+          value: '3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b' # Generated random secret
+        - name: JWT_EXPIRATION
+          value: '86400000' # 24 hours in milliseconds
+        - name: ADMIN_EMAIL
+          value: 'admin@hospital.com'
+        - name: ADMIN_PASSWORD
+          value: 'admin123'
 
 ---
 apiVersion: v1
