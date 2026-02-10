@@ -1,6 +1,8 @@
-# Hospital Management System - Setup Guide
+# Hospital Management System - Local Development Guide
 
-This document provides detailed, step-by-step instructions for setting up the development environment for the Hospital Management System.
+> **Note:** For Kubernetes deployment, please refer to [DEPLOY_ON_K8S.md](DEPLOY_ON_K8S.md). This guide is for running the application locally on your host machine without containers.
+
+This document provides detailed, step-by-step instructions for setting up the development environment for the Hospital Management System manually.
 
 ## Prerequisites
 
@@ -34,10 +36,10 @@ The application requires a MySQL/MariaDB database to store data.
     CREATE DATABASE IF NOT EXISTS HospitalDatabase;
 
     -- Create the user (if not already created)
-    CREATE USER IF NOT EXISTS 'hospital_admin'@'localhost' IDENTIFIED BY 'H#LL@123hospital';
+    CREATE USER IF NOT EXISTS `hospital_admin`@`localhost` IDENTIFIED BY `H#LL@123hospital`;
 
     -- Grant permissions
-    GRANT ALL PRIVILEGES ON HospitalDatabase.* TO 'hospital_admin'@'localhost';
+    GRANT ALL PRIVILEGES ON HospitalDatabase.* TO `hospital_admin`@`localhost`;
 
     -- Apply changes
     FLUSH PRIVILEGES;
@@ -145,15 +147,3 @@ cd backend
 ./mvnw clean test
 ```
 *These tests use an in-memory database and do not affect your main data.*
-
----
-
-## Troubleshooting
-
-*   **Port Conflicts**:
-    *   If port `8080` is busy, the backend won't start. Kill the process using that port or change `server.port` in `application.properties`.
-    *   If port `3000` is busy, Vite will usually try the next available port (e.g., `3001`).
-
-*   **Database Connection Errors**:
-    *   Ensure the MySQL service is running (`sudo systemctl status mysql` or `sudo service mysql status`).
-    *   Double-check the username and password in `application.properties` matches what you set in MySQL.
