@@ -1,6 +1,17 @@
 # Deploying Hospital Management System on Kubernetes
 
-This guide assumes you have **Docker** and **Kubernetes** (e.g., Docker Desktop with Kubernetes enabled, Minikube, or a cloud cluster) installed and configured.
+This deployment is specifically designed for local Kubernetes environments such as **Docker Desktop** (with Kubernetes enabled) or **Minikube**.
+
+## Prerequisites
+
+To run this project on Kubernetes, you **must** have one of the following installed:
+
+1.  **Docker Desktop** (Windows/Mac) with Kubernetes enabled in settings.
+2.  **Minikube** (Linux/Windows/Mac) along with a hypervisor or Docker driver.
+
+Additionally, you need the `kubectl` CLI tool installed and configured to point to your cluster.
+
+---
 
 ## 1. Build Docker Images
 
@@ -17,6 +28,8 @@ Run this from the project root:
 ```bash
 docker build -t hospital-frontend:latest ./frontend
 ```
+
+> **Note for Minikube Users:** You may need to run `minikube image load hospital-backend:latest` and `minikube image load hospital-frontend:latest` if your cluster cannot find the locally built images.
 
 ## 2. Deploy to Kubernetes
 
@@ -46,19 +59,19 @@ kubectl get services
 ```
 
 - **If using Docker Desktop (Windows/Mac):**
-  The `frontend` service is type `LoadBalancer`. It should show an `EXTERNAL-IP` (usually `localhost`).
+  The `frontend` service is type `LoadBalancer`. It should show an `EXTERNAL-IP` as `localhost`.
   Open your browser and go to: **http://localhost**
 
 - **If using Minikube:**
-  Run the following command to get the URL:
+  Run the following command to open the application:
   ```bash
   minikube service frontend
   ```
 
 ## 4. Configuration Details
 
-- **Database Persistence**: The MySQL data is stored in a Persistent Volume Claim (`mysql-pvc`). Data will persist if the Pod restarts.
-- **Secrets**: The database password is stored in a Kubernetes Secret (`mysql-secret`) defined in `k8s/mysql-deployment.yaml`. **For production, change the password in this file before applying.**
+- **Database Persistence**: The MySQL data is stored in a Persistent Volume Claim (`mysql-pvc`). Data will persist if the Pod restarts.   
+- **Secrets**: The database password is stored in a Kubernetes Secret (`mysql-secret`) defined in `k8s/mysql-deployment.yaml`.
 - **API Proxy**: The frontend Nginx server is configured to forward any request starting with `/api/` to the backend service. This eliminates CORS issues and simplifies the connection.
 
 ## Troubleshooting

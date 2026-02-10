@@ -7,6 +7,11 @@ A professional full-stack platform for coordinating healthcare services, now con
 - [🛠️ Local Development Guide](SETUP_GUIDE.md)
 - [📖 Full Technical Documentation](FULL_DOCUMENTATION.md)
 
+## Deployment Requirements
+This project is designed to be deployed on a local Kubernetes cluster. You **must** have one of the following:
+- **Docker Desktop** (with Kubernetes enabled)
+- **Minikube**
+
 ## Architecture
 This repository contains a containerized version of the Hospital Management System:
 - **Frontend**: React (Vite) served via Nginx
@@ -21,9 +26,7 @@ This repository contains a containerized version of the Hospital Management Syst
 - **System Analytics**: Dynamic statistics based on live data.
 
 ## Deployment
-This project is designed to be deployed on a Kubernetes cluster (Minikube, Docker Desktop, or Cloud).
-
-**[➡️ Click here for the Deployment Instructions](DEPLOY_ON_K8S.md)**
+**[➡️ Click here for the Full Deployment Instructions](DEPLOY_ON_K8S.md)**
 
 ### Quick Start (Docker Desktop / Minikube)
 ```bash
@@ -38,7 +41,7 @@ kubectl apply -f k8s/frontend-deployment.yaml
 
 # 3. Access
 # Visit http://localhost (Docker Desktop)
-# Or run `minikube service frontend`
+# Or run `minikube service frontend` (Minikube)
 ```
 
 ---
